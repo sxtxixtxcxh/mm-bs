@@ -1,3 +1,6 @@
+
+activate :livereload
+
 ###
 # Compass
 ###
