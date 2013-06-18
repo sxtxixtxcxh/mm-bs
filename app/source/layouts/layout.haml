@@ -7,7 +7,9 @@
     / Use title if it's in the page YAML frontmatter
     %title= data.page.title || "The Middleman"
     = stylesheet_link_tag "normalize", "application"
-    = javascript_include_tag  "application"
+    %script{ :src => "http://www.parsecdn.com/js/parse-1.2.7.min.js" }
+    %script{ :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyD8RZi7wQ3lMJYkS247UNKtVigdGI5Z6qY&sensor=true" }
+    = javascript_include_tag  "manifest"
   %body{:class => page_classes}
     = yield
     = render :partial, '_templates'
