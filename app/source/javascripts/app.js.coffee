@@ -10,7 +10,7 @@ window.App ||=
   console:
     log: ->
     error: ->
-    warn:->
+    warn: ->
 
 #prevent console logs from throwing an exception
 window.console = App.console if App.environment is 'production'
