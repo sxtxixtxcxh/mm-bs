@@ -8,19 +8,29 @@
 #= require 'lib/ƒ'
 #= require_tree './config'
 #= require_tree './initializers'
-#= require 'app'
 #= require_self
 #= require 'router'
 #= require_tree './models'
 #= require_tree './views'
 #= require_tree './collections'
+#= require 'app'
 #
 
-$ ->
-  console.log 'document ready'
-  App.router = new App.Router
-  App.listenTo App.router, 'route', ->
-    _gaq.push(['_trackPageview',location.pathname + location.search  + location.hash])
+window.App ||=
+  Views: {}
+  Models: {}
+  Collections: {}
+  Helpers: {}
+  views: {}
+  collections: {}
+  models: {}
+  environment: config.environment
+  console:
+    log: ->
+    error: ->
+    warn: ->
 
-  Backbone.history.start
-    pushState: App.environment is 'production'
+#prevent console logs from throwing an exception
+window.console = App.console if App.environment is 'production'
+
+_.extend App, Backbone.Events

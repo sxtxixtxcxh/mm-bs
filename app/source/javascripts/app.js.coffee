@@ -1,18 +1,8 @@
-window.App ||=
-  Views: {}
-  Models: {}
-  Collections: {}
-  Helpers: {}
-  views: {}
-  collections: {}
-  models: {}
-  environment: config.environment
-  console:
-    log: ->
-    error: ->
-    warn: ->
+$ ->
+  console.log 'document ready'
+  App.router = new App.Router
+  App.listenTo App.router, 'route', ->
+    _gaq.push(['_trackPageview',location.pathname + location.search  + location.hash])
 
-#prevent console logs from throwing an exception
-window.console = App.console if App.environment is 'production'
-
-_.extend App, Backbone.Events
+  Backbone.history.start
+    pushState: App.environment is 'production'
