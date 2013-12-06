@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'json', '~> 1.7.7'
+gem 'json'
 gem 'rb-fsevent'
-gem 'middleman'
+gem 'middleman', "~> 3.2.0"
 gem 'middleman-livereload'
 gem 'rake'
 gem 'sass'
