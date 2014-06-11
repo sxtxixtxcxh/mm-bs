@@ -12,7 +12,7 @@
     = javascript_include_tag  "manifest"
   %body{:class => page_classes}
     = yield
-    = render :partial, '_templates'
+    = partial "templates"
     :javascript
       if (App.environment=='production')
         (function() {
